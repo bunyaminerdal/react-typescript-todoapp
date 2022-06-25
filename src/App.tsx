@@ -5,9 +5,11 @@ import { addNote, changeStatus, deleteNote } from './Redux/actions';
 import { NewNoteInput } from './components/NewNoteInput';
 import { note, NoteState } from './Redux/NoteReducer';
 
+import "./App.css"
+
 
 function App() {
-  const notes = useSelector<NoteState, NoteState["notes"]>((state) => state.notes)
+  const notes = useSelector<NoteState, note[]>((state) => state.notes)
   const dispatch = useDispatch()
 
   const onAddNote = (note: note) => {
@@ -21,21 +23,23 @@ function App() {
     dispatch(changeStatus(newNote))
   }
   return (
-    <>
+    <div className='box'>
       <NewNoteInput addNote={onAddNote} />
-      <hr />
-      <ul>
-        {notes.map((note) => {
-          return (
-            <li key={note.id} style={{ minWidth: "200px", display: "flex", marginBottom: "10px" }}>
-              <button style={{ marginRight: "10px", cursor: "pointer" }} onClick={() => onDeleteNote(note.id)}>delete</button>
-              <span style={{ textDecorationLine: note.status ? "none" : "line-through", cursor: "pointer", textDecorationColor: "red" }} onClick={(e) => onStatusChange(note, e)}>{note.body} </span>
-            </li>
-          )
-        })
-        }
-      </ul>
-    </>
+      <div className="inputs">
+        <ul>
+          {notes.map((note) => {
+            return (
+              <li key={note.id}>
+                <label style={{ textDecorationLine: note.status ? "none" : "line-through", textDecorationColor: "red" }} onClick={(e) => onStatusChange(note, e)}>{note.body} </label>
+                <button onClick={() => onDeleteNote(note.id)}>X</button>
+              </li>
+            )
+          })
+          }
+        </ul>
+      </div>
+
+    </div>
   );
 }
 

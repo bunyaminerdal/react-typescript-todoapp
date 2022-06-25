@@ -22,8 +22,11 @@ export const NoteReducer = (state: NoteState = initialState, action: Action) => 
             return { ...state, notes: state.notes.filter(note => note.id !== action.payload) }
         case "CHANGE_STATUS":
             return {
-                ...state, notes: [...state.notes.filter(note => note.id !== action.payload.id), action.payload].sort(function (a, b) {
-                    return (a.id - b.id);
+                ...state, notes: state.notes.map((note, index) => {
+                    if (index == action.payload.id) {
+                        note.status = action.payload.status
+                    }
+                    return note
                 })
             }
         default:

@@ -35,7 +35,7 @@ export const NewNoteInput: React.FC<NewNotInputProps> = ({ addNote }) => {
     }
   }
   return (
-    <div>
+    <div className='inputs'>
       <input value={note.body} onChange={updateNote} type="text" name="note" placeholder='Note...' onKeyDown={onKeyDownHandler} />
       <button onClick={onAddNoteClick}>Add Note</button>
     </div>
