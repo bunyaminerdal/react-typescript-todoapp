@@ -1,7 +1,8 @@
-# simple TODO app
+# Simple TODO app with Create React App
 
-# used libraries
+## Used libraries
 
-### react ts
-
-### redux
+TypeScript
+React-Router
+React-Redux
+React-Context Hooks

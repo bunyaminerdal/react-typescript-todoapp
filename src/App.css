@@ -1,90 +1,80 @@
-html {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
+.App {
+  text-align: center;
 }
 
-#root {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-}
-.box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column; 
-    align-items: center;
-    height: 100%;
-    width: 100%;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.inputs {
-    display: inline-flex;
-    width: 60%;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid black;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.inputs input {
-    width: 300px;
-    padding: 5px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.inputs > button {
-    height: 30px;
-    padding: 5px;
-    background-color: transparent;
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.todoList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.todoList li {
+  margin-top: 5px;
+  padding: 3px;
+  border: 1px solid black;
+  display: flex;
+  width: 500px;
+  align-items: center;
+  border-radius: 6px;
+  justify-content: flex-start;
+}
+.todoList li div {
+  flex:1;
+  text-align: start;
     cursor: pointer;
-    border: 1px solid #000;
-    border-left: 0;
-    font-size: 18px;
-    font-weight: 700;
-    transition: 300ms background-color;
-    margin-bottom: 10px;
-
+    padding:0 10px;
 }
-.inputs button:hover {
-    background-color: rgba(67, 60, 60,0.5);
+.todoList li button {
+font-size: 20px;
+border: 1px solid black;
+border-radius: 50%;
+background-color: white;
+transition: all 300ms ease;
+cursor: pointer;
 }
-.inputs ul {
-    width: 100%;
-    display: inline-flex;
-    flex-direction: column;
-    font-size: 18px;
-    padding-left: 20px;
+.todoList li button:hover {
+  background-color: red;
+  color: white;
 }
-.inputs li {
-    display: flex;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    justify-content: space-between;
-    background-color: rgb(77, 77, 77,0.2);
-    align-items: center;
-    padding-left: 10px;
+.class-name-complate {
+  text-decoration: line-through;
 }
-
-.inputs li button {
-    height: 30px;
-    padding: 5px;
-    background-color: transparent;
-    cursor: pointer;
-    border: 1px solid #000;
-    font-size: 18px;
-    font-weight: 700;
-    transition: 300ms background-color;
+.class-name-uncomplate {
+  text-decoration: none;
 }
-.inputs li label {
-    display: flex;
-    flex-grow: 1;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
-    transition: 1s text-decoration-line;       
-}
-
